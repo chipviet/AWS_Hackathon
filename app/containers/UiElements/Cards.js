@@ -1,67 +1,59 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import brand from 'dan-api/dummy/brand';
-import { SourceReader, PapperBlock } from 'dan-components';
-import Button from '@material-ui/core/Button';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Slide from '@material-ui/core/Slide';
-import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import React from "react";
+import { Helmet } from "react-helmet";
+import brand from "dan-api/dummy/brand";
+import { SourceReader, PapperBlock } from "dan-components";
+import Button from "@material-ui/core/Button";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Slide from "@material-ui/core/Slide";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import {
   StandardCards,
   ControlCards,
   PaperSheet,
   SocialCards,
   EcommerceCards,
-} from './demos';
-
+} from "./demos";
 const styles = (theme) => ({
   title: {
     margin: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px`,
   },
   inlineWrap: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
   },
 });
-
 function Transition(props) {
   return <Slide direction="up" {...props} />;
 }
-
 class Cards extends React.Component {
   state = {
     open: false,
     openSlide: false,
   };
-
   handleClickOpen = () => {
     this.setState({ open: true });
   };
-
   handleClose = () => {
     this.setState({ open: false });
   };
-
   handleClickOpenSlide = () => {
     this.setState({ openSlide: true });
   };
-
   handleCloseSlide = () => {
     this.setState({ openSlide: false });
   };
-
   render() {
-    const title = brand.name + ' - UI Elements';
+    const title = brand.name + " - UI Elements";
     const description = brand.desc;
-    const docSrc = 'containers/UiElements/demos/Cards/';
+    const docSrc = "containers/UiElements/demos/Cards/";
     const { classes } = this.props;
     const { open, openSlide } = this.state;
     return (
@@ -88,10 +80,10 @@ class Cards extends React.Component {
           <div>
             <StandardCards />
             <button
-              style={{ color: '#FAFAFA', background: '#FAFAFA' }}
+              style={{ color: "#FAFAFA", background: "#FAFAFA" }}
               onClick={this.handleClickOpen}
             >
-              {' '}
+              {" "}
               Hellossss
             </button>
             <Dialog
@@ -112,15 +104,14 @@ class Cards extends React.Component {
                   isPlaying
                   duration={10}
                   colors={[
-                    ['#219EE5', 0.33],
-                    ['#F7B801', 0.33],
-                    ['#A30000', 0.33],
+                    ["#219EE5", 0.33],
+                    ["#F7B801", 0.33],
+                    ["#A30000", 0.33],
                   ]}
                 >
                   {({ remainingTime }) => remainingTime}
                 </CountdownCircleTimer>
               </div>
-
               <DialogActions>
                 <Button
                   variant="outlined"
@@ -152,7 +143,6 @@ class Cards extends React.Component {
                 </Button>
               </DialogActions>
             </Dialog>
-
             {/* <SourceReader componentName={docSrc + 'StandardCards.js'} /> */}
           </div>
         </PapperBlock>
@@ -178,5 +168,4 @@ class Cards extends React.Component {
     );
   }
 }
-
 export default Cards;
